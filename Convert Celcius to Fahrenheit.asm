@@ -1,0 +1,29 @@
+ORG 100H
+
+.MODEL SMALL
+.DATA
+AR DB 9 DUP(0)
+
+;DISPLAY DB 'ENTER TWO DIGIT NUMBER: $'
+    F DW ?
+    
+.CODE
+MAIN PROC 
+    
+    MOV AX,@DATA
+    MOV DS,AX
+    MOV AX,260
+    MOV BX,9
+    MUL BX
+    MOV BX,5
+    DIV BX
+    MOV BX,32
+    ADD AX,BX
+    MOV BX,1
+    SUB AX,BX
+    MOV F,AX
+ 
+MAIN ENDP
+END MAIN
+    
+      

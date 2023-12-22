@@ -1,0 +1,36 @@
+ORG 100H
+
+.MODEL SMALL
+.DATA
+AR DB 9 DUP(0)
+
+DISPLAY DB 'ENTER TWO DIGIT NUMBER: $'
+    NUM1 DB ?
+    
+.CODE
+MAIN PROC 
+    
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    MOV DX,OFFSET DISPLAY
+    MOV AH,9
+    INT 21H
+    
+    MOV AH,1
+    INT 21H
+    
+    CMP AL,9
+    JBE NUMBER:
+    
+    NUMBER:
+    MOV CL,4
+    ROL AL,CL
+    MOV AH,1
+    INT 21H 
+
+
+MAIN ENDP
+END MAIN
+    
+      
