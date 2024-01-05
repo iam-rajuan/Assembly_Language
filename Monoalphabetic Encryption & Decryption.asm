@@ -36,7 +36,7 @@ message_display_dec DB cret, 'Decrypted message: $'
 message_encrypting DB 'Encrypting...$'
 message_decrypting DB 'Decrypting...$'
  
-; Just for reference ---------------------> 'abcdefghijklmnopqrstuvwxyz'
+;-------------------------------------> 'abcdefghijklmnopqrstuvwxyz'
 encryption_table_lower DB 97 DUP (' '), 'qwertyuiopasdfghjklzxcvbnm'
 decryption_table_lower DB 97 DUP (' '), 'kxvmcnophqrszyijadlegwbuft'
 
