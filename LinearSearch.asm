@@ -1,0 +1,35 @@
+ORG 100H
+
+.MODEL SMALL
+.DATA
+     ARRAY DB 22,11,10,45,55,98
+     FOUND DB "NUMBER IS FOUND $"    
+     NOTFOUND DB "NUMBER IS NOT FOUND $"
+  
+.CODE
+MAIN PROC
+    MOV CX,5
+    LEA SI, ARRAY
+    MOV DL,55
+    
+    REPEAT:
+      CMP DL,[SI]
+      JE TO
+      INC SI
+    LOOP  REPEAT
+    
+    LEA DX,NOTFOUND
+    MOV AH,9
+    INT 21H
+    JMP EXIT
+    TO:
+    LEA DX,FOUND
+    MOV AH,9
+    INT 21H
+    
+    EXIT:
+MAIN ENDP
+END MAIN
+  RET
+      
+     
